@@ -1,32 +1,24 @@
 # 🔗 String Linkify IntelliJ Plugin
-
 An IntelliJ plugin that turns string literals in your code into clickable hyperlinks, using the same patterns you configure in IntelliJ's built-in **Issue Navigation**.
 
 ## The Problem
 
 IntelliJ's Issue Navigation feature (Settings > Version Control > Issue Navigation) lets you define regex patterns that turn issue IDs into clickable links -- but it only works in **VCS commit messages and comments**. If your code references issues, feature flags, or other identifiers inside string literals, those remain plain, unlinked text.
 
-<!-- Plugin description -->
 ## What This Plugin Does
-
 This plugin extends Issue Navigation patterns to **any string literals in code**. The pattern you've already configured for commit messages will now also create clickable links inside strings, XML attributes, and comments across multiple languages.
 
 It also supports **contextual matching** -- it considers the surrounding code (like a method or constructor name) when matching patterns, enabling more precise rules.
-<!-- Plugin description end -->
 
 ### Example
 
 Given this Issue Navigation configuration:
 
-| Pattern | Link URL |
-|---|---|
-| `Feature\("([A-Za-z]+-\d+)"\)` | `https://featureflags.com/browse/$1` |
+| Pattern                          | Link URL                             |
+|----------------------------------|--------------------------------------|
+| `Feature\("([A-Za-z\-_.\d]+)"\)` | `https://featureflags.com/browse/$1` |
 
 The string `"feature-1"` in the following code becomes a clickable link to `https://featureflags.com/browse/feature-1`:
-
-```java
-new Feature("feature-1")
-```
 
 ```kotlin
 val f = Feature("feature-1")
@@ -51,7 +43,7 @@ This lets you write patterns that are scoped to specific call sites (matching on
 | Use Case | Issue Pattern | Link URL |
 |---|---|---|
 | Any JIRA-style ID in a string | `([A-Z]+-\d+)` | `https://jira.example.com/browse/$1` |
-| Only inside `Feature(...)` calls | `Feature\("([A-Za-z]+-\d+)"\)` | `https://features.example.com/$1` |
+| Only inside `Feature(...)` calls | `Feature\("([A-Za-z\-_.\d]+)"\)` | `https://features.example.com/$1` |
 | GitHub issue references | `#(\d+)` | `https://github.com/org/repo/issues/$1` |
 
 ## Building from Source
