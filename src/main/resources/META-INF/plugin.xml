@@ -1,0 +1,15 @@
+<idea-plugin>
+    <id>com.github.amitdev.stringlinkify</id>
+    <name>String Linkify</name>
+    <vendor url="https://github.com/amitdev">amitdev</vendor>
+
+    <!-- Description is patched at build time from README.md -->
+    <description><![CDATA[]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <psi.referenceContributor
+            implementation="com.github.amitdev.stringlinkify.StringLinkifyReferenceContributor"/>
+    </extensions>
+</idea-plugin>
