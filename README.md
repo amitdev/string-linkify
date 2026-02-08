@@ -1,6 +1,8 @@
 # 🔗 String Linkify IntelliJ Plugin
 An IntelliJ plugin that turns string literals in your code into clickable hyperlinks, using the same patterns you configure in IntelliJ's built-in **Issue Navigation**.
 
+![Demo](demo.gif)
+
 ## The Problem
 
 IntelliJ's Issue Navigation feature (Settings > Version Control > Issue Navigation) lets you define regex patterns that turn issue IDs into clickable links -- but it only works in **VCS commit messages and comments**. If your code references issues, feature flags, or other identifiers inside string literals, those remain plain, unlinked text.
