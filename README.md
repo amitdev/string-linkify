@@ -1,4 +1,6 @@
 # 🔗 String Linkify IntelliJ Plugin
+[![Version](https://img.shields.io/jetbrains/plugin/v/30103-string-linkify.svg)](https://plugins.jetbrains.com/plugin/30103-string-linkify)
+
 An IntelliJ plugin that turns string literals in your code into clickable hyperlinks, using the same patterns you configure in IntelliJ's built-in **Issue Navigation**.
 
 ![Demo](demo.gif)
